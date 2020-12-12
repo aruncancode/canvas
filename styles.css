@@ -1,5 +1,22 @@
-#canvas {
-	width: 800px;
-	height: 800px;
-	border: 1px solid #000000;
+input[type="checkbox"] {
+	width: 30px;
+	height: 30px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	outline: 5px solid black;
+	box-shadow: none;
+	margin: 20px;
+}
+
+input[type="checkbox"]:hover {
+	width: 50px !important;
+	height: 50px !important;
+}
+
+.options {
+	padding: 50px;
+	display: inline-block;
+	position: absolute;
 }
