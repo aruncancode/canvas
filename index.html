@@ -11,16 +11,44 @@
 	<body>
 		<canvas
 			id="canvas"
-			height="800"
-			width="800"
-			style="border: solid 1px; position: relative;"
+			height="900"
+			width="1720"
+			style="border: solid 1px; position: relative"
 		></canvas>
 		<div class="options">
 			<div class="brushSizes">
-				<input type="checkbox" id="1" style="width: 5px; height: 5px" />
-				<input type="checkbox" id="2" style="width: 10px; height: 10px" />
-				<input type="checkbox" id="5" style="width: 15px; height: 15px" />
-				<input type="checkbox" id="10" style="width: 20px; height: 20px" />
+				<input
+					type="checkbox"
+					id="1"
+					style="width: 5px; height: 5px; outline-color: lightgreen"
+				/>
+				<input
+					type="checkbox"
+					id="5"
+					style="width: 10px; height: 10px; outline-color: lightgreen"
+				/>
+				<input
+					type="checkbox"
+					id="10"
+					style="width: 15px; height: 15px; outline-color: lightgreen"
+				/>
+			</div>
+			<div class="brushStrokes">
+				<input
+					type="checkbox"
+					id="solid"
+					style="outline: 5px solid lightblue"
+				/>
+				<input
+					type="checkbox"
+					id="dotted"
+					style="outline: 5px dotted lightblue"
+				/>
+				<input
+					type="checkbox"
+					id="dashed"
+					style="outline: 5px dashed lightblue"
+				/>
 			</div>
 			<div class="brushColours">
 				<input
@@ -30,23 +58,17 @@
 				/>
 				<input type="checkbox" id="red" style="outline-color: red" />
 				<input type="checkbox" id="blue" style="outline-color: blue" />
-				<input
-					type="checkbox"
-					id="green"
-					style="outline-color: green"
-				/>
-				<input
-					type="checkbox"
-					id="yellow"
-					style="outline-color: yellow"
-				/>
 			</div>
-			<div class="clear">
-				<input type="checkbox" id="clear" style="outline: 5px dotted grey" />
-			</div>
-			<div class="brushStrokes"></div>
 			<div class="tools"></div>
+			<div class="clear">
+				<input
+					type="checkbox"
+					id="clear"
+					style="outline: 5px dotted grey"
+				/>
+			</div>
 		</div>
+
 		<script src="script.js"></script>
 	</body>
 </html>

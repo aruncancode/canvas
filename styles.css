@@ -8,6 +8,7 @@ input[type="checkbox"] {
 	outline: 5px solid black;
 	box-shadow: none;
 	margin: 20px;
+	display: -moz-inline-stack;
 }
 
 input[type="checkbox"]:hover {
@@ -19,4 +20,8 @@ input[type="checkbox"]:hover {
 	padding: 50px;
 	display: inline-block;
 	position: absolute;
+}
+
+#canvas {
+	cursor: crosshair;
 }

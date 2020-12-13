@@ -1,25 +1,28 @@
 mouse_down = false;
 selected_size = 5;
 selected_colour = "black";
+selected_stroke = "solid"
+
+lineVars = {
+	"solid" : [],
+	"dashed" : [10,10],
+	"dotted" : [5,5]
+}
+
 canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d");
+
 lastx = 0;
 lasty = 0;
 newx = 0;
 newy = 0;
-
-function make_pixel(x, y) {
-	ctx = canvas.getContext("2d");
-	ctx.beginPath();
-	ctx.arc(x, y, selected_size, 0, 2 * Math.PI);
-	ctx.fillStyle = selected_colour;
-	ctx.fill();
-}
 
 function make_line(lastx, lasty, newx, newy) {
 	ctx = canvas.getContext("2d");
 	ctx.beginPath();
 	ctx.moveTo(lastx, lasty);
 	ctx.lineTo(newx, newy);
+	ctx.setLineDash(lineVars[selected_stroke])
 	ctx.lineWidth = selected_size + 4;
 	ctx.strokeStyle = selected_colour;
 	ctx.stroke();
@@ -29,17 +32,23 @@ $("#canvas").mousedown(function (e) {
 	mouse_down = true;
 	lastx = e.clientX;
 	lasty = e.clientY;
+	ctx.beginPath();
+	// ctx.moveTo(e.clientX, e.clientY);
 });
 
 $("#canvas").mousemove(function (e) {
 	if (mouse_down) {
-		make_pixel(e.clientX, e.clientY);
+		ctx.lineTo(e.clientX, e.clientY)
+		ctx.setLineDash(lineVars[selected_stroke])
+		ctx.strokeStyle = selected_colour
+		ctx.lineWidth=selected_size + 4
+		ctx.stroke()
 	}
 	newx = e.clientX;
 	newy = e.clientY;
 });
 
-$("#canvas").mouseup(function (e) {
+$(window).mouseup(function (e) {
 	mouse_down = false;
 });
 
@@ -57,7 +66,11 @@ $(document).keydown(function (e) {
 	}
 });
 
-$(".clear").click(function (e){
+$(".clear").click(function (e) {
 	ctx = canvas.getContext("2d");
-	ctx.clearRect(0, 0, canvas.width, canvas.height)
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+$(".brushStrokes").click(function(e){
+	selected_stroke = e.target.id
 })
