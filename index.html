@@ -10,66 +10,32 @@
 		<title>Canvas</title>
 	</head>
 	<body>
-		<canvas
-			id="canvas"
-			height="900"
-			width="1720"
-			style="border: solid 1px; position: relative"
-		></canvas>
-		<div class="options">
-			<div class="brushSizes">
-				<input
-					type="checkbox"
-					id="1"
-					style="width: 5px; height: 5px; outline-color: lightgreen"
-				/>
-				<input
-					type="checkbox"
-					id="5"
-					style="width: 10px; height: 10px; outline-color: lightgreen"
-				/>
-				<input
-					type="checkbox"
-					id="10"
-					style="width: 15px; height: 15px; outline-color: lightgreen"
-				/>
-			</div>
-			<div class="brushStrokes">
-				<input
-					type="checkbox"
-					id="solid"
-					style="outline: 5px solid lightblue"
-				/>
-				<input
-					type="checkbox"
-					id="dotted"
-					style="outline: 5px dotted lightblue"
-				/>
-				<input
-					type="checkbox"
-					id="dashed"
-					style="outline: 5px dashed lightblue"
-				/>
-			</div>
-			<div class="brushColours">
-				<input
-					type="checkbox"
-					id="black"
-					style="outline-color: black"
-				/>
-				<input type="checkbox" id="red" style="outline-color: red" />
-				<input type="checkbox" id="blue" style="outline-color: blue" />
-			</div>
-			<div class="tools"></div>
-			<div class="clear">
-				<input
-					type="checkbox"
-					id="clear"
-					style="outline: 5px dotted grey"
-				/>
+		<div class="container">
+			<canvas id="canvas"></canvas>
+			<div class="slider"></div>
+			<div class="options">
+				<div class="brushSizes">
+					<input type="checkbox" id="10" style="outline: 10px solid lightblue" />
+					<input type="checkbox" id="5" style="outline: 5px solid lightblue" />
+					<input type="checkbox" id="1" style="outline: 1px solid lightblue" />
+				</div>
+				<div class="brushStrokes">
+					<input type="checkbox" id="solid" style="outline: 5px solid lightblue" />
+					<input type="checkbox" id="dotted" style="outline: 5px dotted lightblue" />
+					<input type="checkbox" id="dashed" style="outline: 5px dashed lightblue" />
+				</div>
+				<div class="brushColours">
+					<input type="checkbox" id="black" style="outline-color: black" />
+					<input type="checkbox" id="red" style="outline-color: red" />
+					<input type="checkbox" id="blue" style="outline-color: blue" />
+				</div>
+				<div class="tools"></div>
+				<div class="clear">
+					<input type="checkbox" id="clear" style="outline: 5px dotted grey" />
+				</div>
 			</div>
 		</div>
-
+	
 		<script src="script.js"></script>
 	</body>
 </html>

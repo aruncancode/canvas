@@ -1,3 +1,7 @@
+body {
+	background-color: white;
+}
+
 input[type="checkbox"] {
 	width: 30px;
 	height: 30px;
@@ -7,21 +11,46 @@ input[type="checkbox"] {
 	appearance: none;
 	outline: 5px solid black;
 	box-shadow: none;
-	margin: 20px;
+	margin: 15px;
 	display: -moz-inline-stack;
 }
 
 input[type="checkbox"]:hover {
-	width: 50px !important;
-	height: 50px !important;
+	transform: scale(1.2);
+}
+
+.container {
+	position: relative;
 }
 
 .options {
-	padding: 50px;
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	transform: rotate(180deg);
 	display: inline-block;
+}
+
+.options div {
+	float: right;
+}
+#canvas {
+	cursor: crosshair;
 	position: absolute;
 }
 
-#canvas {
-	cursor: crosshair;
+.slider {
+	width: 560px;
+	height: 50px;
+	left: 1%;
+	top: 20px;
+	position: absolute;
+}
+
+input[type="button"] {
+	background-color: lightgrey; /* Green */
+	color: white;
+	border: none;
+	font-size: 20px;
+	text-align: center;
 }

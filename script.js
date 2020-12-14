@@ -1,15 +1,20 @@
 mouse_down = false;
 selected_size = 5;
 selected_colour = "black";
-selected_stroke = "solid"
+selected_stroke = "solid";
 
 lineVars = {
-	"solid" : [],
-	"dashed" : [10,10],
-	"dotted" : [5,5]
-}
+	solid: [],
+	dashed: [10, 10],
+	dotted: [5, 5],
+};
 
 canvas = document.getElementById("canvas");
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+console.log(window.innerHeight);
+
 ctx = canvas.getContext("2d");
 
 lastx = 0;
@@ -22,7 +27,7 @@ function make_line(lastx, lasty, newx, newy) {
 	ctx.beginPath();
 	ctx.moveTo(lastx, lasty);
 	ctx.lineTo(newx, newy);
-	ctx.setLineDash(lineVars[selected_stroke])
+	ctx.setLineDash(lineVars[selected_stroke]);
 	ctx.lineWidth = selected_size + 4;
 	ctx.strokeStyle = selected_colour;
 	ctx.stroke();
@@ -33,16 +38,15 @@ $("#canvas").mousedown(function (e) {
 	lastx = e.clientX;
 	lasty = e.clientY;
 	ctx.beginPath();
-	// ctx.moveTo(e.clientX, e.clientY);
 });
 
 $("#canvas").mousemove(function (e) {
 	if (mouse_down) {
-		ctx.lineTo(e.clientX, e.clientY)
-		ctx.setLineDash(lineVars[selected_stroke])
-		ctx.strokeStyle = selected_colour
-		ctx.lineWidth=selected_size + 4
-		ctx.stroke()
+		ctx.lineTo(e.clientX, e.clientY);
+		ctx.setLineDash(lineVars[selected_stroke]);
+		ctx.strokeStyle = selected_colour;
+		ctx.lineWidth = selected_size + 4;
+		ctx.stroke();
 	}
 	newx = e.clientX;
 	newy = e.clientY;
@@ -71,6 +75,19 @@ $(".clear").click(function (e) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
-$(".brushStrokes").click(function(e){
-	selected_stroke = e.target.id
-})
+$(".brushStrokes").click(function (e) {
+	selected_stroke = e.target.id;
+});
+
+$(".options").click(function () {
+	$(".options").fadeOut("slow");
+});
+
+$(".slider").mouseover(function () {
+	$(".options").fadeIn("5000");
+});
+
+$(window).resize(() => {
+	canvas.height = window.innerHeight - 20;
+	canvas.width = window.innerWidth- 20;
+});
